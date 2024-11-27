@@ -25,7 +25,7 @@ export default function Home() {
               name="email"
               placeholder="Email"
               required={true}
-              error=""
+              error={state?.fieldErrors.email}
             />
           </label>
           <label className="relative justify-center  rounded-3xl bg-inherit  w-full ">
@@ -35,7 +35,7 @@ export default function Home() {
               placeholder="Username"
               name="username"
               required={true}
-              error=""
+              error={state?.fieldErrors.username}
             />
           </label>
           <label className="relative justify-center  rounded-3xl bg-inherit w-full ">
@@ -45,14 +45,14 @@ export default function Home() {
               placeholder="Password"
               name="password"
               required={true}
-              error={state}
+              error={state?.fieldErrors.password}
             />
           </label>
 
           <div className="flex flex-col items-center justify-center rounded-3xl bg-neutral-300 ">
             <FormBtn />
           </div>
-          {state === "" ? <WelcomeDiv /> : ""}
+          {state === null ? "" : state?.fieldErrors ? "" : <WelcomeDiv />}
         </form>
       </div>
     </div>
